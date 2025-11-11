@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>归去来兮辞</title>
+    <style>
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #a8edea, #fed6e3),
+          repeating-linear-gradient(
+            135deg,
+            transparent 0%,
+            transparent 25%,
+            #a8edea 25%,
+            #a8edea 50%,
+            #fed6e3 50%,
+            #fed6e3 75%,
+            transparent 75%
+          );
+        background-size: 200% 200%;
+        animation: moveGradient 15s ease infinite;
+
+        font-family: "Microsoft YaHei", "SimSun", sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      @keyframes moveGradient {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+      p {
+        text-indent: 2em;
+        margin: 1.5em 0;
+        text-align: justify;
+      }
+      h1 {
+        text-align: center;
+        margin: 1.5em 0;
+        color: #2c3e50;
+      }
+      h2 {
+        text-align: center;
+        margin: 1.5em 0;
+        color: #2c3e50;
+      }
+      h1 {
+        font-size: 2.2em;
+        border-bottom: 2px solid #27ae60;
+        padding-bottom: 0.5em;
+      }
+      h2 {
+        font-size: 1.8em;
+        color: #2c3e50;
+      }
+      .paragraph-animation {
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .paragraph-animation.active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .hover-move {
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+      .hover-move:hover {
+        transform: translateX(5px);
+      }
+      hr {
+        border: none;
+        height: 5px;
+        background: linear-gradient(to right, #27ae60, #2ecc71);
+        margin: 2em 0;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 2em;
+        padding-top: 1em;
+        border-top: 1px solid #ecf0f1;
+        color: #7f8c8d;
+        font-size: 0.9em;
+      }
+      .footer a {
+        color: #2c3e50;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+      .author-image {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 1em auto;
+        display: block;
+        border: 2px solid #27ae60;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1 class="hover-move">归去来兮辞</h1>
+      <hr />
+      <h2 class="hover-move">晋·陶渊明</h2>
+
+      <p class="paragraph-animation paragraph-1">
+        归去来兮，田园将芜胡不归？既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者之可追。实迷途其未远，觉今是而昨非。舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹微。
+      </p>
+
+      <p class="paragraph-animation paragraph-2">
+        乃瞻衡宇，载欣载奔。僮仆欢迎，稚子候门。三径就荒，松菊犹存。携幼入室，有酒盈樽。引壶觞以自酌，眄庭柯以怡颜。倚南窗以寄傲，审容膝之易安。园日涉以成趣，门虽设而常关。策扶老以流憩，时矫首而遐观。云无心以出岫，鸟倦飞而知还。景翳翳以将入，抚孤松而盘桓。
+      </p>
+
+      <p class="paragraph-animation paragraph-3">
+        归去来兮，请息交以绝游。世与我而相违，复驾言兮焉求？悦亲戚之情话，乐琴书以消忧。农人告余以春及，将有事于西畴。或命巾车，或棹孤舟。既窈窕以寻壑，亦崎岖而经丘。木欣欣以向荣，泉涓涓而始流。善万物之得时，感吾生之行休。
+      </p>
+
+      <p class="paragraph-animation paragraph-4">
+        已矣乎！寓形宇内复几时？曷不委心任去留？胡为乎遑遑欲何之？富贵非吾愿，帝乡不可期。怀良辰以孤往，或植杖而耘耔。登东皋以舒啸，临清流而赋诗。聊乘化以归尽，乐夫天命复奚疑！
+      </p>
+    </div>
+    <hr />
+
+    <div class="footer">
+      <p>本站声明：该项目只作为学习用途</p>
+      <p>
+        版权声明:
+        <a href="https://github.com/666liubin/first-html"
+          ><strong>@破镜</strong></a
+        >所有
+      </p>
+      <img src="./photo/破镜.png" alt="破镜" class="author-image" />
+    </div>
+
+    <script>
+      // 确保动画在页面加载后触发
+      document.addEventListener("DOMContentLoaded", function () {
+        const paragraphs = document.querySelectorAll(".paragraph-animation");
+        paragraphs.forEach((p, index) => {
+          setTimeout(() => {
+            p.classList.add("active");
+          }, index * 200 + 200);
+        });
+      });
+    </script>
+  </body>
+</html>
